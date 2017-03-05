@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	 <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.encoding" value="GB18030" /> <!-- internationalization -->
+	<!-- 配置包 -->
+	<!-- 登陆 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="Login" class="com.action.LoginAction">
+			<result name="input">/UI3.jsp</result>
+			<result name="success">/studentMain.jsp</result>
+			<result name="success1">/taecherMain.jsp</result>
+			<result name="success2">/parentMain.jsp</result>
+				<result name="success3">/adminMain.jsp</result>
+			</action>
+	</package>
+	
+	<!-- 学生修改密码 -->
+	<package name="default1" namespace="/" extends="struts-default">
+		<action name="update" class="com.action.UdpswdAction">
+			<result name="input">/register.jsp</result>
+			<result name="success">/UI2.jsp</result>
+			</action>
+	</package>
+	
+	<!-- 老师修改密码 -->
+	<package name="default11" namespace="/" extends="struts-default">
+		<action name="update1" class="com.action.UdpswdTeaAction">
+			<result name="input">/tregister.jsp</result>
+			<result name="success">/UI2.jsp</result>
+			</action>
+	</package>
+	
+	<!-- 注册 -->
+	<package name="default2" namespace="/" extends="struts-default">
+		<action name="register" class="com.action.RegisterAction">
+			<result name="input">/register.jsp</result>
+			<result name="success">/registerSuccess.jsp</result>
+			</action>
+	</package>
+	
+	
+	<!-- 文件上传 -->
+	<package name="fileUpload1" namespace="/" extends="struts-default">
+		<action name="fileUpload" class="com.action.FileUploadAction">
+		<!-- 动态设置Action中的savePath属性的值 -->
+		<!-- 用来为该action的savePath属性动态注入值 -->
+		    <param name="savePath">/upload</param>
+			<result name="success">/teacherUpload.jsp</result>
+			</action>
+	</package>
+	
+	<package name="1234" namespace="/" extends="struts-default">
+		<action name="editor" class="com.action.editorAction">
+		<!-- 动态设置Action中的savePath属性的值 -->
+		<!-- 用来为该action的savePath属性动态注入值 -->
+		  <param name="savePath">/upload</param>
+			<result name="success">/teacherUpload.jsp</result>
+			</action>
+	</package>
+	<!-- 文件下载前读取信息 -->
+		<package name="default3" namespace="/" extends="struts-default">
+		<action name="dwAction" class="com.action.DwAction">
+			<result name="success">/Studentdownload2.jsp</result>
+			</action>
+	</package>
+	
+	<!-- 展示作业-->
+		<package name="show" namespace="/" extends="struts-default">
+		<action name="show" class="com.action.showAction">
+		<result name="success">/ueditor/index2.jsp</result>
+			</action>
+	</package>
+	
+	
+	<!-- 文件下载 -->
+		<package name="filedownload" namespace="/" extends="struts-default">
+		<action name="download" class="com.action.DownloadAction">
+		<result name="success" type="stream">
+		<param name="contextDisposition">attachment;filename="${uploadFileName}"</param>
+		<param name="inputName">downloadFile</param>  
+		</result>
+			</action>
+	</package>
+	
+	
+	<!-- 增加学校 -->
+		<package name="addschool" namespace="/" extends="struts-default">
+		<action name="addSchool" class="com.action.AddSchoolAction">
+			<result name="input">/adminAddSchoolFail.jsp</result>
+			<result name="success">/adminAddSchool.jsp</result>
+			</action>
+	</package>
+	
+	<!-- 增加老师 -->
+		<package name="addteacher" namespace="/" extends="struts-default">
+		<action name="addTeacher" class="com.action.AddTeacherAction">
+			<result name="input">/adminAddSchoolFail.jsp</result>
+			<result name="success">/adminAddTeacher.jsp</result>
+			</action>
+	</package>
+	
+		<!-- 增加学生 -->
+		<package name="addstudent" namespace="/" extends="struts-default">
+		<action name="addStudent" class="com.action.AddStudentAction">
+			<result name="input">/adminAddSchoolFail.jsp</result>
+			<result name="success">/adminAddStudent.jsp</result>
+			</action>
+	</package>
+	
+	
+	<!-- 修改教师信息(选择学校) -->
+		<package name="changeTeacherInfo" namespace="/" extends="struts-default">
+		<action name="updateTeacherAction" class="com.action.UpdateTeacherAction">
+			<result name="success">/adminTeaChoSchool2.jsp</result>
+			<result name="success2">/adminTeaChoseCouse2.jsp</result>
+			</action>
+	</package>
+	
+	
+	<!-- 修改教师信息(选择学校2) -->
+		<package name="changeTeacherInfo2" namespace="/" extends="struts-default">
+		<action name="updateTeacherAction2" class="com.action.UpdateTeacherAction2">
+			<result name="success">/adminTeaChoseCouse2.jsp</result>
+			</action>
+	</package>
+	
+	
+		<!-- 保存每位老师所授课程 -->
+		<package name="saveCourse" namespace="/" extends="struts-default">
+		<action name="savecourse" class="com.action.SavecourseAction">
+			<result name="success">/adminTeaChoseCouse2.jsp</result>
+			</action>
+	</package>
+	
+	
+	
+	<!-- 删除教师 -->
+		<package name="deleteTeacher" namespace="/" extends="struts-default">
+		<action name="deleteTeacherAction" class="com.action.DeleteTeacherAction">
+			<result name="success">/adminTeaChoSchool.jsp</result>
+			</action>
+	</package>
+		
+	<!-- 选择修改教师信息 的老师-->
+		<package name="changeTeacherInfo12"  namespace="/" extends="struts-default">
+		<action name="updateTeacherInfoAction" class="com.action.UpdateTeacherInfoAction">
+			<result name="success">/adminUpdateTeacherInfo.jsp</result>
+			</action>
+	</package>
+	
+	
+			
+	<!-- 修改教师信息-->
+		<package name="changeTeacherInfo3" namespace="/" extends="struts-default">
+		<action name="updateTeacherInfoAction2" class="com.action.UpdateTeacherInfoAction2">
+			<result name="success">/adminTeaChoSchool.jsp</result>
+			</action>
+	</package>
+	  
+	  
+	
+</struts>

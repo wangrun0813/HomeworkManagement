@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory>
+
+	<!--数据库连接设置 -->
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="connection.url">
+		jdbc:mysql://localhost:3306/mydb
+	</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">1234</property>
+
+
+	<!-- 方言 -->
+	<property name="dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+
+	<!-- 控制台显示SQL -->
+	<property name="show_sql">true</property>
+
+	<!-- 自动更新表结构 <property name="hbm2ddl.auto">update</property> -->
+	<!-- 指出映射文件的位置 -->
+
+
+	<mapping resource="com/model/Admin.hbm.xml" />
+	<mapping resource="com/model/Chose.hbm.xml" />
+	<mapping resource="com/model/Course.hbm.xml" />
+	<mapping resource="com/model/Homework.hbm.xml" />
+	<mapping resource="com/model/Parent.hbm.xml" />
+	<mapping resource="com/model/Password.hbm.xml" />
+	<mapping resource="com/model/Sclass.hbm.xml" />
+	<mapping resource="com/model/Student.hbm.xml" />
+	<mapping resource="com/model/Teach.hbm.xml" />
+	<mapping resource="com/model/Teacher.hbm.xml" />
+	<mapping resource="com/model/University.hbm.xml" />
+</session-factory>
+
+</hibernate-configuration>
